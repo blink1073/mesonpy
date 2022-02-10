@@ -38,6 +38,8 @@ if platform.system() == 'Linux':
     SHARED_LIB_EXT = 'so'
 elif platform.system() == 'Darwin':
     SHARED_LIB_EXT = 'dylib'
+elif platform.system() == 'Windows':
+    SHARED_LIB_EXT = 'dll'
 else:
     raise NotImplementedError(f'Unknown system: {platform.system()}')
 
