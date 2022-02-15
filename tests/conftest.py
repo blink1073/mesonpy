@@ -54,9 +54,8 @@ def in_git_repo_context(path=os.path.curdir):
 def tmp_dir_session():
     path = tempfile.mkdtemp(prefix='mesonpy-test-')
 
-
     try:
-        yield pathlib.PurePosixPath(path)
+        yield pathlib.Path(path.replace(os.sep, '/'))
     finally:
         try:
             shutil.rmtree(path)
