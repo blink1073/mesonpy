@@ -55,7 +55,7 @@ def tmp_dir_session():
     path = tempfile.mkdtemp(prefix='mesonpy-test-')
 
     try:
-        yield pathlib.Path(path)
+        yield pathlib.PosixPath(path)
     finally:
         try:
             shutil.rmtree(path)
