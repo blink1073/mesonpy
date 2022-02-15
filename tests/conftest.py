@@ -54,6 +54,7 @@ def in_git_repo_context(path=os.path.curdir):
 def tmp_dir_session():
     path = tempfile.mkdtemp(prefix='mesonpy-test-')
 
+
     try:
         yield pathlib.PosixPath(path)
     finally:
