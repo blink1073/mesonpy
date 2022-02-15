@@ -56,7 +56,7 @@ def tmp_dir_session():
 
 
     try:
-        yield pathlib.PosixPath(path)
+        yield pathlib.PurePosixPath(path)
     finally:
         try:
             shutil.rmtree(path)
