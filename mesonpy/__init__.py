@@ -322,8 +322,7 @@ class _WheelBuilder():
 
                 # install bundled libraries
                 for destination, origin in wheel_files['mesonpy-libs']:
-                    assert os.name == 'posix', 'Bundling libraries in wheel is currently only supported in POSIX!'
-                    destination = pathlib.Path(f'.{self._project.name}.mesonpy.libs', destination)
+                    destination = pathlib.PurePosixPath(f'.{self._project.name}.mesonpy.libs', destination)
                     self._install_file(whl, counter, origin, destination)
 
                 # install the other schemes
@@ -331,7 +330,7 @@ class _WheelBuilder():
                     if scheme in (root_scheme, 'mesonpy-libs'):
                         continue
                     for destination, origin in wheel_files[scheme]:
-                        destination = pathlib.Path(self.data_dir, scheme, destination)
+                        destination = pathlib.PurePosixPath(self.data_dir, scheme, destination)
                         self._install_file(whl, counter, origin, destination)
 
         return wheel_file
